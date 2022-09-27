@@ -1,0 +1,27 @@
+{
+  "_QPVersion": "0.1.1",
+  "name": "Thicc Mod",
+  "id": "thiccMod",
+  "author": "speecil",
+  "version": "0.1.0",
+  "coverImage": "cover.png",
+  "packageId": "com.beatgames.beatsaber",
+  "packageVersion": "1.24.0",
+  "description": "Have you ever wanted to play beat saber, but the bloqs were the size of your mother? Well look no further! Thicc Mod has got you covered!",
+  "dependencies": [
+    {
+      "version": "^0.25.0",
+      "id": "codegen",
+      "downloadIfMissing": "https://github.com/sc2ad/BeatSaber-Quest-Codegen/releases/download/v0.25.0/Codegen.qmod"
+    }
+  ],
+  "modFiles": [
+    "libthiccMod.so"
+  ],
+  "libraryFiles": [
+    "libbeatsaber-hook_3_14_0.so",
+    "libbs-utils.so"
+  ],
+  "fileCopies": [],
+  "copyExtensions": []
+}
