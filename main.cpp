@@ -7,12 +7,16 @@
 #include "extern/includes/bs-utils/shared/utils.hpp"
 #include "MainConfig.hpp"
 #include "questui/shared/QuestUI.hpp"
+#include "GlobalNamespace/LobbySetupViewController.hpp"
+#include "qosmetics-notes/shared/API.hpp"
+#include "qosmetics-sabers/shared/API.hpp"
+#include "qosmetics-notes/shared/NotesConfig.hpp"
 
 using namespace GlobalNamespace;
 using namespace UnityEngine;
 using namespace QuestUI;
 using namespace custom_types;
-
+using namespace Qosmetics;
 
 static ModInfo modInfo; // Stores the ID and version of our mod, and is sent to the modloader upon startup
 DEFINE_CONFIG(MainConfig);
@@ -29,9 +33,13 @@ Logger& getLogger() {
     return *logger;
 }
 
+bool inMulti;
+//bool qosNote = Qosmetics::Notes::API::GetNoteIsCustom().value_or(false);
+//bool qosSaber = Qosmetics::Sabers::API::GetSaberIsCustom().value_or(false);
+
 void DidActivate(HMUI::ViewController* self, bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling){
     if(firstActivation) 
-    {
+    {   
         UnityEngine::GameObject* container = QuestUI::BeatSaberUI::CreateScrollableSettingsContainer(self->get_transform());
         QuestUI::BeatSaberUI::CreateText(container->get_transform(), "Enable Thicc Mod here");
         UnityEngine::UI::Toggle* isEnabled = AddConfigValueToggle(container->get_transform(), getMainConfig().isEnabled);
@@ -41,10 +49,26 @@ void DidActivate(HMUI::ViewController* self, bool firstActivation, bool addedToH
     }
 }   
 
+MAKE_HOOK_MATCH(multiCheck, &LobbySetupViewController::DidActivate, void, LobbySetupViewController *self, bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling)
+{
+    multiCheck(self, firstActivation, addedToHierarchy, screenSystemEnabling);
+    inMulti = true;
+    getLogger().info("User connected to multiplayer, disabling Thicc Mod");
+}
+
 MAKE_HOOK_MATCH(ThiccNotes, &GlobalNamespace::NoteController::Init, void, GlobalNamespace::NoteController* self, GlobalNamespace::NoteData* noteData, float worldRotation, UnityEngine::Vector3 moveStartPos, UnityEngine::Vector3 moveEndPos, UnityEngine::Vector3 jumpEndPos, float moveDuration, float jumpDuration, float jumpGravity, float endRotation, float uniformScale, bool rotateTowardsPlayer, bool useRandomRotation) {
     
     ThiccNotes(self, noteData, worldRotation, moveStartPos, moveEndPos, jumpEndPos, moveDuration, jumpDuration,  jumpGravity, endRotation, uniformScale, rotateTowardsPlayer, useRandomRotation);
-    if(getMainConfig().isEnabled.GetValue() & getMainConfig().megaThicc.GetValue() == true){
+    
+    if(inMulti == true){
+        self->get_noteTransform()->set_localScale(UnityEngine::Vector3(1,1,1));
+        getLogger().info("no longer thicc due to user being in multiplayer");
+    }
+    //else if (qosNote = true){
+        //self->get_noteTransform()->set_localScale(UnityEngine::Vector3(1,1,1));
+        //getLogger().info("no longer thicc due to user using cyoob");
+    //}
+    else if(getMainConfig().isEnabled.GetValue() & getMainConfig().megaThicc.GetValue() == true){
         self->get_noteTransform()->set_localScale(UnityEngine::Vector3(3,1,1));
         getLogger().info("your shit be thicc as fuck now ;)");
     }
@@ -57,14 +81,14 @@ MAKE_HOOK_MATCH(ThiccNotes, &GlobalNamespace::NoteController::Init, void, Global
         bs_utils::Submission::enable(modInfo);
         getLogger().info("no longer thicc :(");
     }
-    
 }
+
 
 MAKE_HOOK_MATCH(MainMenuUIHook, &GlobalNamespace::MainMenuViewController::DidActivate, void, GlobalNamespace::MainMenuViewController
 *self, bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling) {
 
     MainMenuUIHook(self, firstActivation, addedToHierarchy, screenSystemEnabling); 
-    
+    inMulti = false;
     if(getMainConfig().isEnabled.GetValue() == true){
         bs_utils::Submission::disable(modInfo);
         getLogger().info("disabled score submission due to thicc mod");
@@ -79,7 +103,16 @@ MAKE_HOOK_MATCH(MainMenuUIHook, &GlobalNamespace::MainMenuViewController::DidAct
 
 MAKE_HOOK_MATCH(ThiccSaber, &Saber::ManualUpdate, void, Saber *self)
 {
-    if(getMainConfig().isEnabled.GetValue() & getMainConfig().megaThicc.GetValue() == true){
+    if(inMulti == true){
+        ThiccSaber(self);
+        self->get_transform()->set_localScale({1, 1, 1});
+    }
+    //else if (qosSaber = true){
+        //ThiccSaber(self);
+        //self->get_transform()->set_localScale({1, 1, 1});
+        //getLogger().info("no longer thicc due to user using whacker");
+    //}
+    else if(getMainConfig().isEnabled.GetValue() & getMainConfig().megaThicc.GetValue() == true){
         ThiccSaber(self);
         self->get_transform()->set_localScale({3.5, 3, 1});
     }
@@ -91,6 +124,7 @@ MAKE_HOOK_MATCH(ThiccSaber, &Saber::ManualUpdate, void, Saber *self)
     {
         ThiccSaber(self);
         self->get_transform()->set_localScale({1, 1, 1});
+
     }
     
 }
@@ -115,5 +149,6 @@ extern "C" void load() {
     INSTALL_HOOK(getLogger(), ThiccNotes);
     INSTALL_HOOK(getLogger(), ThiccSaber);
     INSTALL_HOOK(getLogger(), MainMenuUIHook);
+    INSTALL_HOOK(getLogger(), multiCheck);
     getLogger().info("Installed all hooks!");
 }
