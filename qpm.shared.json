@@ -40,11 +40,50 @@
         "id": "questui",
         "versionRange": "^0.16.4",
         "additionalData": {}
+      },
+      {
+        "id": "config-utils",
+        "versionRange": "^0.8.0",
+        "additionalData": {}
+      },
+      {
+        "id": "custom-types",
+        "versionRange": "^0.15.21",
+        "additionalData": {}
+      },
+      {
+        "id": "qosmetics-sabers",
+        "versionRange": "^0.1.0",
+        "additionalData": {}
+      },
+      {
+        "id": "qosmetics-notes",
+        "versionRange": "^0.1.0",
+        "additionalData": {}
+      },
+      {
+        "id": "qosmetics-core",
+        "versionRange": "^2.0.0",
+        "additionalData": {}
       }
     ],
     "additionalData": {}
   },
   "restoredDependencies": [
+    {
+      "dependency": {
+        "id": "qosmetics-core",
+        "versionRange": "^2.0.0",
+        "additionalData": {
+          "soLink": "https://github.com/Qosmetics/Qosmetics-Core/releases/download/v2.0.0/libqosmetics-core.so",
+          "debugSoLink": "https://github.com/Qosmetics/Qosmetics-Core/releases/download/v2.0.0/debug_libqosmetics-core.so",
+          "overrideSoName": "libqosmetics-core.so",
+          "modLink": "https://github.com/Qosmetics/Qosmetics-Core/releases/download/v2.0.0/QosmeticsCore.qmod",
+          "branchName": "version-v2.0.0"
+        }
+      },
+      "version": "2.0.0"
+    },
     {
       "dependency": {
         "id": "bs-utils",
@@ -61,6 +100,103 @@
     },
     {
       "dependency": {
+        "id": "libil2cpp",
+        "versionRange": "^0.2.3",
+        "additionalData": {
+          "headersOnly": true
+        }
+      },
+      "version": "0.2.3"
+    },
+    {
+      "dependency": {
+        "id": "qosmetics-notes",
+        "versionRange": "^0.1.0",
+        "additionalData": {
+          "headersOnly": true,
+          "soLink": "https://github.com/Qosmetics/Qosmetics-Notes/releases/download/v0.1.0/libqosmetics-notes.so",
+          "debugSoLink": "https://github.com/Qosmetics/Qosmetics-Notes/releases/download/v0.1.0/debug_libqosmetics-notes.so",
+          "overrideSoName": "libqosmetics-notes.so",
+          "modLink": "https://github.com/Qosmetics/Qosmetics-Notes/releases/download/v0.1.0/QosmeticsCyoobs.qmod",
+          "branchName": "version-v0.1.0"
+        }
+      },
+      "version": "0.1.0"
+    },
+    {
+      "dependency": {
+        "id": "qosmetics-sabers",
+        "versionRange": "^0.1.0",
+        "additionalData": {
+          "headersOnly": true,
+          "soLink": "https://github.com/Qosmetics/Qosmetics-Sabers/releases/download/v0.1.0/libqosmetics-sabers.so",
+          "debugSoLink": "https://github.com/Qosmetics/Qosmetics-Sabers/releases/download/v0.1.0/debug_libqosmetics-sabers.so",
+          "overrideSoName": "libqosmetics-sabers.so",
+          "modLink": "https://github.com/Qosmetics/Qosmetics-Sabers/releases/download/v0.1.0/QosmeticsWhackers.qmod",
+          "branchName": "version-v0.1.0"
+        }
+      },
+      "version": "0.1.0"
+    },
+    {
+      "dependency": {
+        "id": "conditional-dependencies",
+        "versionRange": "^0.1.0",
+        "additionalData": {
+          "headersOnly": true
+        }
+      },
+      "version": "0.1.0"
+    },
+    {
+      "dependency": {
+        "id": "questui",
+        "versionRange": "^0.16.4",
+        "additionalData": {
+          "soLink": "https://github.com/darknight1050/QuestUI/releases/download/v0.16.4/libquestui.so",
+          "debugSoLink": "https://github.com/darknight1050/QuestUI/releases/download/v0.16.4/debug_libquestui.so",
+          "overrideSoName": "libquestui.so",
+          "modLink": "https://github.com/darknight1050/QuestUI/releases/download/v0.16.4/QuestUI.qmod",
+          "branchName": "version-v0.16.4",
+          "compileOptions": {
+            "systemIncludes": [
+              "shared/cppcodec"
+            ]
+          }
+        }
+      },
+      "version": "0.16.4"
+    },
+    {
+      "dependency": {
+        "id": "tinyxml2",
+        "versionRange": "^9.0.5",
+        "additionalData": {
+          "soLink": "https://github.com/MillzyDev/NDK-tinyxml2/releases/download/v9.0.5/libtinyxml2.so",
+          "debugSoLink": "https://github.com/MillzyDev/NDK-tinyxml2/releases/download/v9.0.5/debug_libtinyxml2.so",
+          "overrideSoName": "libtinyxml2.so",
+          "modLink": "https://github.com/MillzyDev/NDK-tinyxml2/releases/download/v9.0.5/tinyxml2.qmod",
+          "branchName": "version-v9.0.5"
+        }
+      },
+      "version": "9.0.5"
+    },
+    {
+      "dependency": {
+        "id": "paper",
+        "versionRange": "^1.2.9",
+        "additionalData": {
+          "soLink": "https://github.com/Fernthedev/paperlog/releases/download/v1.2.9/libpaperlog.so",
+          "debugSoLink": "https://github.com/Fernthedev/paperlog/releases/download/v1.2.9/debug_libpaperlog.so",
+          "overrideSoName": "libpaperlog.so",
+          "modLink": "https://github.com/Fernthedev/paperlog/releases/download/v1.2.9/paperlog.qmod",
+          "branchName": "version-v1.2.9"
+        }
+      },
+      "version": "1.2.9"
+    },
+    {
+      "dependency": {
         "id": "modloader",
         "versionRange": "=1.2.3",
         "additionalData": {
@@ -73,13 +209,17 @@
     },
     {
       "dependency": {
-        "id": "libil2cpp",
-        "versionRange": "^0.2.3",
+        "id": "config-utils",
+        "versionRange": "^0.8.0",
         "additionalData": {
-          "headersOnly": true
+          "headersOnly": true,
+          "soLink": "https://github.com/darknight1050/config-utils/releases/download/v0.8.0/libconfig-utils_test.so",
+          "debugSoLink": "https://github.com/darknight1050/config-utils/releases/download/v0.8.0/debug_libconfig-utils_test.so",
+          "overrideSoName": "libconfig-utils_test.so",
+          "branchName": "version-v0.8.0"
         }
       },
-      "version": "0.2.3"
+      "version": "0.8.0"
     },
     {
       "dependency": {
@@ -94,6 +234,20 @@
         }
       },
       "version": "0.15.21"
+    },
+    {
+      "dependency": {
+        "id": "diglett",
+        "versionRange": "^2.1.1",
+        "additionalData": {
+          "soLink": "https://github.com/MillzyDev/bsq-Diglett/releases/download/v2.1.1/libdiglett.so",
+          "debugSoLink": "https://github.com/MillzyDev/bsq-Diglett/releases/download/v2.1.1/debug_libdiglett.so",
+          "overrideSoName": "libdiglett.so",
+          "modLink": "https://github.com/MillzyDev/bsq-Diglett/releases/download/v2.1.1/Diglett.qmod",
+          "branchName": "version-v2.1.1"
+        }
+      },
+      "version": "2.1.1"
     },
     {
       "dependency": {
@@ -122,22 +276,22 @@
     },
     {
       "dependency": {
-        "id": "questui",
-        "versionRange": "^0.16.4",
+        "id": "fmt",
+        "versionRange": "^9.0.0",
         "additionalData": {
-          "soLink": "https://github.com/darknight1050/QuestUI/releases/download/v0.16.4/libquestui.so",
-          "debugSoLink": "https://github.com/darknight1050/QuestUI/releases/download/v0.16.4/debug_libquestui.so",
-          "overrideSoName": "libquestui.so",
-          "modLink": "https://github.com/darknight1050/QuestUI/releases/download/v0.16.4/QuestUI.qmod",
-          "branchName": "version-v0.16.4",
+          "headersOnly": true,
+          "branchName": "version-v9.0.0",
           "compileOptions": {
             "systemIncludes": [
-              "shared/cppcodec"
+              "fmt/include/"
+            ],
+            "cppFlags": [
+              "-DFMT_HEADER_ONLY"
             ]
           }
         }
       },
-      "version": "0.16.4"
+      "version": "9.0.0"
     }
   ]
 }

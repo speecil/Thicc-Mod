@@ -39,6 +39,31 @@
       "id": "questui",
       "versionRange": "^0.16.4",
       "additionalData": {}
+    },
+    {
+      "id": "config-utils",
+      "versionRange": "^0.8.0",
+      "additionalData": {}
+    },
+    {
+      "id": "custom-types",
+      "versionRange": "^0.15.21",
+      "additionalData": {}
+    },
+    {
+      "id": "qosmetics-sabers",
+      "versionRange": "^0.1.0",
+      "additionalData": {}
+    },
+    {
+      "id": "qosmetics-notes",
+      "versionRange": "^0.1.0",
+      "additionalData": {}
+    },
+    {
+      "id": "qosmetics-core",
+      "versionRange": "^2.0.0",
+      "additionalData": {}
     }
   ],
   "additionalData": {}

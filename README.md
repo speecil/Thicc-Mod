@@ -1,2 +1,9 @@
-# Thicc-Mod
-Have you ever wanted to play beat saber, but the bloqs were the size of your mother? Well look no further! Thicc Mod has got you covered!
+# Thicc Notes
+
+notes be thicc
+
+## Credits
+
+* [zoller27osu](https://github.com/zoller27osu), [Sc2ad](https://github.com/Sc2ad) and [jakibaki](https://github.com/jakibaki) - [beatsaber-hook](https://github.com/sc2ad/beatsaber-hook)
+* [raftario](https://github.com/raftario)
+* [Lauriethefish](https://github.com/Lauriethefish), [danrouse](https://github.com/danrouse) and [Bobby Shmurner](https://github.com/BobbyShmurner) for [this template](https://github.com/Lauriethefish/quest-mod-template)

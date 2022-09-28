@@ -13,6 +13,11 @@
       "version": "^0.25.0",
       "id": "codegen",
       "downloadIfMissing": "https://github.com/sc2ad/BeatSaber-Quest-Codegen/releases/download/v0.25.0/Codegen.qmod"
+    },
+    {
+      "version": "^0.15.21",
+      "id": "custom-types",
+      "downloadIfMissing": "https://github.com/sc2ad/Il2CppQuestTypePatching/releases/download/v0.15.21/CustomTypes.qmod"
     }
   ],
   "modFiles": [
@@ -20,7 +25,8 @@
   ],
   "libraryFiles": [
     "libbeatsaber-hook_3_14_0.so",
-    "libbs-utils.so"
+    "libbs-utils.so",
+    "libcustom-types.so"
   ],
   "fileCopies": [],
   "copyExtensions": []
