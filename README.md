@@ -1,4 +1,4 @@
-# Thicc Mod ### **Now works with Qosmetics**
+# Thicc Mod **Now works with Qosmetics**
 
 Have you ever wanted to play beat saber, but the bloqs and sabers were the size of your mother? Well look no further! Thicc Mod has got you covered!
 
