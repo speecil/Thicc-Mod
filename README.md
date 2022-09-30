@@ -1,4 +1,4 @@
-# Thicc Notes
+# Thicc Mod
 
 notes be thicc
 
