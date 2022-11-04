@@ -40,7 +40,7 @@ void DidActivate(HMUI::ViewController* self, bool firstActivation, bool addedToH
         UnityEngine::UI::Toggle* isEnabled = AddConfigValueToggle(container->get_transform(), getMainConfig().isEnabled);
         QuestUI::BeatSaberUI::AddHoverHint(isEnabled->get_gameObject(), "Enable Thicc Mod?");
         UnityEngine::UI::Toggle* megaThicc = AddConfigValueToggle(container->get_transform(), getMainConfig().megaThicc);
-        QuestUI::BeatSaberUI::AddHoverHint(megaThicc->get_gameObject(), "THICC AS FUCK");
+        QuestUI::BeatSaberUI::AddHoverHint(megaThicc->get_gameObject(), "GODDAM");
     }
 }   
 
@@ -79,11 +79,11 @@ MAKE_HOOK_MATCH(ThiccNotes, &GlobalNamespace::NoteController::Init, void, Global
     }
     else if(getMainConfig().isEnabled.GetValue() & getMainConfig().megaThicc.GetValue() == true){
         self->get_noteTransform()->set_localScale(UnityEngine::Vector3(3,1,1));
-        getLogger().info("your shit be thicc as fuck now ;)");
+        getLogger().info("notes set to megathicc");
     }
     else if(getMainConfig().isEnabled.GetValue() == true){
         self->get_noteTransform()->set_localScale(UnityEngine::Vector3(1.5,1,1));
-        getLogger().info("your shit be thicc now");
+        getLogger().info("notes set to thicc");
     }
     else if (getMainConfig().isEnabled.GetValue() == false)
     {
